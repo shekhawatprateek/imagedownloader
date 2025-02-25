@@ -1,4 +1,7 @@
 
+import fs from 'fs'
+import { images } from "./constant.js"
+
 
 function saveImage(data, i) {
     try {
@@ -15,9 +18,11 @@ function saveImage(data, i) {
     }
 }
 
-export async function DownloadImage() {
+export async function DownloadImage(req, res) {
 
     try {
+
+        let number_of_images = req.params.number;
 
         for (let i = 0; i < images.length; i++) {
 
