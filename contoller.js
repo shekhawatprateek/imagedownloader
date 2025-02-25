@@ -1,6 +1,7 @@
 
 import fs from 'fs'
 import { images } from "./constant.js"
+import sharp from "sharp"
 
 
 function saveImage(data, i) {
@@ -24,19 +25,36 @@ export async function DownloadImage(req, res) {
 
         let number_of_images = req.params.number;
 
-        for (let i = 0; i < images.length; i++) {
 
-            const response = await fetch(images[i]);
 
-            console.log(response)
+        let selected_images = images.slice(0, number_of_images)
 
-            const imagesArr = await response.arrayBuffer();
 
-            // console.log(imagesArr)
-            const buffer = Buffer.from(imagesArr, 'binary');
 
-            // console.log(buffer)
-            saveImage(buffer, i)
+        for (let i = 0; i < selected_images.length; i++) {
+
+            try {
+
+                const response = await fetch(selected_images[i]);
+
+                // console.log(response)
+
+                const imagesArr = await response.arrayBuffer();
+
+                // console.log(imagesArr)
+                const buffer = Buffer.from(imagesArr, 'binary');
+
+                sharp(buffer)
+                    .resize(200, 200)
+                    .toFile(`resized${i}.jpg`, (err, info) => {
+                        // console.log("error", err);
+                    });
+
+                saveImage(buffer, i)
+
+            } catch (e) {
+                console.log("error while fetching images")
+            }
 
         }
 
