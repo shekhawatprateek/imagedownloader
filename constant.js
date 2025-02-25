@@ -1,0 +1,1 @@
+export const images = ["https://live.staticflickr.com/65535/54345728154_19d0982c47_z.jpg", "https://live.staticflickr.com/65535/54345414881_9765a18a76_z.jpg", "https://live.staticflickr.com/65535/54347630073_483398ea16_n.jpg", "https://live.staticflickr.com/65535/54346088746_d3c3431b36_w.jpg", "https://live.staticflickr.com/65535/54345277994_e69275077f_z.jpg"]
