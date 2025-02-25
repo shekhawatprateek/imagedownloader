@@ -3,4 +3,5 @@ const {DownloadImage} = require("./contoller.js")
 
 const route = express.Router()
 
-route.get("/images/:number", DownloadImage)
+route.get("/images/:number", DownloadImage);
+

@@ -2,6 +2,8 @@ const { images } = require("./constant.js")
 const express = require("express")
 const route = require("./route.js")
 const app = express()
+const fs = require('fs')
+
 
 
 app.use(route)
