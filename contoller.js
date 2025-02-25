@@ -1,3 +1,5 @@
+const Axios = require('axios')
+const fs = require('fs')
 
 
 function saveImage(data, i) {
